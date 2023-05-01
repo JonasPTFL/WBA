@@ -19,11 +19,13 @@ public class ArtefaktRepository {
         Artefakt a1 = new Artefakt();
         a1.setId(1L);
         a1.setTitel("Artefakt 1");
+        a1.setGeplanteArbeitszeit(5);
         a1.setKurzbeschreibung("Kurzbeschriebung Artefakt 1");
         
         Artefakt a2 = new Artefakt();
         a2.setId(2L);
         a2.setTitel("Artefakt 2");
+        a2.setGeplanteArbeitszeit(3);
         a2.setKurzbeschreibung("Kurzbeschriebung Artefakt 2");
         
         // add example data to list
