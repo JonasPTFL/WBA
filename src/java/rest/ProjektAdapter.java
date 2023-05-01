@@ -11,11 +11,21 @@ import java.time.LocalDateTime;
  */
 public class ProjektAdapter {
     private String titel;
+    private String kurzbeschreibung;
     private String startdate;
     private Long id; 
+    private String logopath;
 
-    public void setTitle(String title) {
-        this.titel = title;
+    public void setKurzbeschreibung(String kurzbeschreibung) {
+        this.kurzbeschreibung = kurzbeschreibung;
+    }
+
+    public void setLogopath(String logopath) {
+        this.logopath = logopath;
+    }
+
+    public void setTitel(String titel) {
+        this.titel = titel;
     }
     public void setId(Long id) {
         this.id = id;
@@ -29,6 +39,8 @@ public class ProjektAdapter {
         Projekt proj = new Projekt();
         proj.setId(this.id);
         proj.setTitel(this.titel);
+        proj.setKurzbeschreibung(this.kurzbeschreibung);
+        proj.setLogopath(this.logopath);
         proj.setStartdatum(LocalDateTime.parse(this.startdate));  //ISO-Datumsformat yyyy-mm-ddT10:15:30
         return proj;
     }
