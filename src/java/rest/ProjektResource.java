@@ -2,7 +2,7 @@ package rest;
 
 import classes.RestConstants;
 import classes.Projekt;
-import classes.ProjektRepository;
+import classes.repository.ProjektRepository;
 import java.io.Serializable;
 import java.net.URI;
 import jakarta.ws.rs.Consumes;

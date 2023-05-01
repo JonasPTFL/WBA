@@ -2,8 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package classes;
+package classes.repository;
 
+import classes.Projekt;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,18 +48,16 @@ public class ProjektRepository {
         return projekte;
     }
     
-    public Projekt addProjekt(Projekt projekt){
+    public void addProjekt(Projekt projekt){
         projekte.add(projekt);
-        return projekt;
     }
     
-    public Projekt updateProjekt(Projekt projekt){
+    public void updateProjekt(Projekt projekt){
         for(int i=0;i<projekte.size();i++){
             if(Objects.equals(projekte.get(i).getId(), projekt.getId())){
                 projekte.set(i, projekt);
             }
         }
-        return projekt;
     }
     
     public Projekt getProjektById(Long id){

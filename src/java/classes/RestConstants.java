@@ -10,6 +10,8 @@ package classes;
  */
 public class RestConstants {
     public static final String PROJECT_PATH = "projekt";
+    public static final String AUFGABENBEREICH_PATH = "aufgabenbereich";
+    public static final String ARTEFAKT_PATH = "artefakt";
     
     /*
     * Generates a path to a specific object

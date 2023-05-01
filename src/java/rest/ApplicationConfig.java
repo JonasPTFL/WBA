@@ -30,7 +30,8 @@ public class ApplicationConfig extends Application {
      */
     private void addRestResourceClasses(Set<Class<?>> resources) {
         resources.add(rest.ProjektResource.class);
-        resources.add(rest.AufgabebereichResource.class);
+        resources.add(rest.AufgabenbereichResource.class);
+        resources.add(rest.ArtefaktResource.class);
     }
     
 }
