@@ -1,7 +1,6 @@
 package rest;
 
 import classes.Aufgabenbereich;
-import classes.RestConstants;
 import classes.repository.AufgabenbereichRepository;
 import java.io.Serializable;
 import java.net.URI;

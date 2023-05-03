@@ -2,6 +2,13 @@ package classes;
 
 import java.io.Serializable;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.NamedQueries;
+import javax.persistence.NamedQuery;
+import javax.persistence.Table;
 
 /**
  * Represents a project
@@ -9,10 +16,18 @@ import jakarta.xml.bind.annotation.XmlRootElement;
  * @author ffehring
  */
 @XmlRootElement
+@Entity
+@Table(name = DatabaseConstants.ARTEFAKT_TABLE)
+@NamedQueries({
+    @NamedQuery( name="artefakt.findAll",
+            query="SELECT t FROM "+DatabaseConstants.ARTEFAKT_TABLE+" t")
+})
 public class Artefakt implements Serializable {
 
     private static final long serialVersionUID = 1L;
    
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     
     private String titel;

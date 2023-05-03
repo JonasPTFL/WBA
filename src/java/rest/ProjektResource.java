@@ -1,6 +1,5 @@
 package rest;
 
-import classes.RestConstants;
 import classes.Projekt;
 import classes.repository.ProjektRepository;
 import java.io.Serializable;

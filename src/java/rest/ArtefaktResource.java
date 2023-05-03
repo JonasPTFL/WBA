@@ -1,7 +1,6 @@
 package rest;
 
 import classes.Artefakt;
-import classes.RestConstants;
 import classes.repository.ArtefaktRepository;
 import java.io.Serializable;
 import java.net.URI;
