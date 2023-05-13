@@ -14,18 +14,24 @@ import jakarta.ws.rs.QueryParam;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.ResponseBuilder;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 @Path(RestConstants.ARTEFAKT_PATH)
-public class ArtefaktResource implements Serializable {    
+public class ArtefaktResource implements Serializable {
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response create(Artefakt aufgabenbereichResource) {
+        try {
             ArtefaktRepository.getInstance().addArtefakt(aufgabenbereichResource);
             URI location = URI.create(RestConstants.createObjectLocationPath(RestConstants.ARTEFAKT_PATH, aufgabenbereichResource.getId()));
             ResponseBuilder rb = Response.ok(location);
             return rb.build();
+        } catch (Exception ex) {
+            return Response.status(Response.Status.INTERNAL_SERVER_ERROR).build();
+        }
     }
     
     @PUT

@@ -21,7 +21,9 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Table(name = DatabaseConstants.PROJECT_TABLE)
 @NamedQueries({
     @NamedQuery( name="projekt.findAll",
-            query="SELECT p FROM "+DatabaseConstants.PROJECT_TABLE+" p")
+            query="SELECT p FROM "+DatabaseConstants.PROJECT_TABLE+" p"),
+    @NamedQuery( name="projekt.findByTitel",
+            query="SELECT t FROM "+DatabaseConstants.PROJECT_TABLE+" t WHERE t.titel = :titel")
 })
 
 public class Projekt implements Serializable {

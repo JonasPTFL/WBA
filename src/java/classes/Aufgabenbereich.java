@@ -15,7 +15,9 @@ import javax.persistence.Table;
 @Table(name = DatabaseConstants.AUFGABENBEREICH_TABLE)
 @NamedQueries({
     @NamedQuery( name="aufgabenbereich.findAll",
-            query="SELECT t FROM "+DatabaseConstants.AUFGABENBEREICH_TABLE+" t")
+            query="SELECT t FROM "+DatabaseConstants.AUFGABENBEREICH_TABLE+" t"),
+    @NamedQuery( name="aufgabenbereich.findByTitel",
+            query="SELECT t FROM "+DatabaseConstants.AUFGABENBEREICH_TABLE+" t WHERE t.titel = :titel")
 })
 public class Aufgabenbereich implements Serializable {
 

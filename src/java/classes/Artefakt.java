@@ -20,7 +20,11 @@ import javax.persistence.Table;
 @Table(name = DatabaseConstants.ARTEFAKT_TABLE)
 @NamedQueries({
     @NamedQuery( name="artefakt.findAll",
-            query="SELECT t FROM "+DatabaseConstants.ARTEFAKT_TABLE+" t")
+            query="SELECT t FROM "+DatabaseConstants.ARTEFAKT_TABLE+" t"),
+    @NamedQuery( name="artefakt.findByTitel",
+            query="SELECT t FROM "+DatabaseConstants.ARTEFAKT_TABLE+" t WHERE t.titel = :titel"),
+    @NamedQuery( name="artefakt.findById",
+            query="SELECT t FROM "+DatabaseConstants.ARTEFAKT_TABLE+" t WHERE t.id = :id")
 })
 public class Artefakt implements Serializable {
 
