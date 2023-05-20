@@ -3,13 +3,19 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/rest/VerbindungZuDBinRESTBeispiel.java</file>
+            <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/classes/Projekt_Artefakt.java</file>
+            <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/classes/Projekt_Aufgabenbereich.java</file>
             <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/rest/ProjektResource.java</file>
             <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/classes/repository/ArtefaktRepository.java</file>
             <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/classes/repository/ProjektRepository.java</file>
             <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/classes/Artefakt.java</file>
+            <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/rest/AufgabenbereichResource.java</file>
             <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/rest/ArtefaktResource.java</file>
+            <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/rest/ProjektAdapter.java</file>
             <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/classes/DatabaseConstants.java</file>
+            <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/classes/Aufgabenbereich.java</file>
+            <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/classes/Projekt.java</file>
+            <file>file:/C:/Users/JP-Laptop/Documents/NetBeansProjects/RestExample2023/src/java/classes/repository/AufgabenbereichRepository.java</file>
         </group>
     </open-files>
 </project-private>

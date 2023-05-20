@@ -18,7 +18,9 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @Table(name = DatabaseConstants.AUFGABENBEREICH_TABLE)
 @NamedQueries({
     @NamedQuery( name=DatabaseConstants.AUFGABENBEREICH_SELECT_ALL,
-            query="SELECT t FROM "+DatabaseConstants.AUFGABENBEREICH_TABLE+" t")
+            query="SELECT t FROM "+DatabaseConstants.AUFGABENBEREICH_TABLE+" t"),
+    @NamedQuery( name=DatabaseConstants.AUFGABENBEREICH_FILTER_TITLE,
+            query="SELECT t FROM "+DatabaseConstants.AUFGABENBEREICH_TABLE+" t WHERE t.titel LIKE :titel")
 })
 public class Aufgabenbereich implements Serializable {
 

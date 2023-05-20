@@ -70,6 +70,12 @@ public class ArtefaktRepository {
         return this.em.find(Artefakt.class, id);
     }
     
+    public List<Artefakt> getArtefaktByTitle(String titel){
+        Query query = this.em.createNamedQuery(DatabaseConstants.ARTEFAKT_FILTER_TITLE, Artefakt.class);
+        query.setParameter("titel", "%" + titel + "%");
+        return query.getResultList();
+    }
+    
     public static ArtefaktRepository getInstance(){
         return INSTANCE;
     }

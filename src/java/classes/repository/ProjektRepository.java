@@ -5,6 +5,7 @@
 package classes.repository;
 
 import classes.Artefakt;
+import classes.Aufgabenbereich;
 import classes.DatabaseConstants;
 import classes.Projekt;
 import jakarta.annotation.Resource;
@@ -51,6 +52,17 @@ public class ProjektRepository {
     
     public Projekt getProjektById(Long id){
         return this.em.find(Projekt.class, id);
+    }
+    
+    public List<Projekt> getProjektByTitle(String titel){
+        Query query = this.em.createNamedQuery(DatabaseConstants.PROJEKT_FILTER_TITLE, Projekt.class);
+        query.setParameter("titel", "%" + titel + "%");
+        return query.getResultList();
+    }
+    
+    public List<Projekt> getArchivierteProjekte(){
+        Query query = this.em.createNamedQuery(DatabaseConstants.PROJEKT_SELECT_ARCHIVIERT, Projekt.class);
+        return query.getResultList();
     }
     
     public static ProjektRepository getInstance(){

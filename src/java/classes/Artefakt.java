@@ -23,7 +23,9 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @Table(name = DatabaseConstants.ARTEFAKT_TABLE)
 @NamedQueries({
     @NamedQuery( name=DatabaseConstants.ARTEFAKT_SELECT_ALL,
-            query="SELECT t FROM "+DatabaseConstants.ARTEFAKT_TABLE+" t")
+            query="SELECT t FROM "+DatabaseConstants.ARTEFAKT_TABLE+" t"),
+    @NamedQuery( name=DatabaseConstants.ARTEFAKT_FILTER_TITLE,
+            query="SELECT t FROM "+DatabaseConstants.ARTEFAKT_TABLE+" t WHERE t.titel LIKE :titel")
 })
 public class Artefakt implements Serializable {
 

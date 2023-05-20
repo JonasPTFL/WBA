@@ -1,6 +1,7 @@
 package rest;
 
 import classes.Aufgabenbereich;
+import classes.repository.ArtefaktRepository;
 import classes.repository.AufgabenbereichRepository;
 import java.io.Serializable;
 import java.net.URI;
@@ -43,6 +44,14 @@ public class AufgabenbereichResource implements Serializable {
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(@QueryParam("id") Long id) {
         ResponseBuilder rb = Response.ok(AufgabenbereichRepository.getInstance().getAufgabenbereichById(id));
+        return rb.build();
+    }
+    
+    @GET
+    @Path("filter_titel")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get(@QueryParam("titel") String title) {
+        ResponseBuilder rb = Response.ok(AufgabenbereichRepository.getInstance().getAufgabenbereichByTitle(title));
         return rb.build();
     }
     

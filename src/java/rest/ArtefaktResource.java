@@ -53,6 +53,14 @@ public class ArtefaktResource implements Serializable {
         return rb.build();
     }
     
+    @GET
+    @Path("filter_titel")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get(@QueryParam("titel") String title) {
+        ResponseBuilder rb = Response.ok(ArtefaktRepository.getInstance().getArtefaktByTitle(title));
+        return rb.build();
+    }
+    
     
     @GET
     @Path("liste")

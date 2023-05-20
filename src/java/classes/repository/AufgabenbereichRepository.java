@@ -48,6 +48,12 @@ public class AufgabenbereichRepository {
         return this.em.find(Aufgabenbereich.class, id);
     }
     
+    public List<Aufgabenbereich> getAufgabenbereichByTitle(String titel){
+        Query query = this.em.createNamedQuery(DatabaseConstants.AUFGABENBEREICH_FILTER_TITLE, Aufgabenbereich.class);
+        query.setParameter("titel", "%" + titel + "%");
+        return query.getResultList();
+    }
+    
     public static AufgabenbereichRepository getInstance(){
         return INSTANCE;
     }

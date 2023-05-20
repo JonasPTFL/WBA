@@ -1,6 +1,7 @@
 package rest;
 
 import classes.Projekt;
+import classes.repository.ArtefaktRepository;
 import classes.repository.ProjektRepository;
 import java.io.Serializable;
 import java.net.URI;
@@ -61,6 +62,14 @@ public class ProjektResource implements Serializable {
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(@QueryParam("id") Long id) {
         ResponseBuilder rb = Response.ok(ProjektRepository.getInstance().getProjektById(id));
+        return rb.build();
+    }
+    
+    @GET
+    @Path("filter_titel")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response get(@QueryParam("titel") String titel) {
+        ResponseBuilder rb = Response.ok(ProjektRepository.getInstance().getProjektByTitle(titel));
         return rb.build();
     }
     
