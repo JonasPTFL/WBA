@@ -4,51 +4,48 @@
  */
 package classes.repository;
 
+import classes.Artefakt;
 import classes.Aufgabenbereich;
+import classes.DatabaseConstants;
+import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionManagement;
+import jakarta.ejb.TransactionManagementType;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+@Stateless
+@TransactionManagement(TransactionManagementType.BEAN)
 public class AufgabenbereichRepository {
     private static final AufgabenbereichRepository INSTANCE = new AufgabenbereichRepository();
-    private final List<Aufgabenbereich> aufgabenbereiche = new ArrayList();
     
-    AufgabenbereichRepository() {
-        // Should fetch all data from the data source (e.g database)
-        // Because of a missing database implementation, the constructor creates some example data
-        Aufgabenbereich a1 = new Aufgabenbereich();
-        a1.setId(1L);
-        a1.setTitel("Aufgabenbereich 1");
-        a1.setKurzbeschreibung("Kurzbeschriebung Aufgabenbereich 1");
-        
-        Aufgabenbereich a2 = new Aufgabenbereich();
-        a2.setId(2L);
-        a2.setTitel("Aufgabenbereich 2");
-        a2.setKurzbeschreibung("Kurzbeschriebung Aufgabenbereich 2");
-        
-        // add example data to list
-        aufgabenbereiche.add(a1);
-        aufgabenbereiche.add(a2);
-    }
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory(DatabaseConstants.PU_NAME);
+    EntityManager em = emf.createEntityManager();
+    
+    EntityTransaction utx = em.getTransaction();
     
     public List<Aufgabenbereich> getAufgabenbereiche(){
-        return aufgabenbereiche;
+        Query query = this.em.createNamedQuery(DatabaseConstants.AUFGABENBEREICH_SELECT_ALL, Aufgabenbereich.class);
+        return query.getResultList();
     }
     
     public void addAufgabenbereich(Aufgabenbereich aufgabenbereich){
-        aufgabenbereiche.add(aufgabenbereich);
+        this.utx.begin();
+        this.em.persist(aufgabenbereich);
+        this.utx.commit();
     }
     
     public void updateAufgabenbereich(Aufgabenbereich aufgabenbereich){
-        for(int i=0;i<aufgabenbereiche.size();i++){
-            if(Objects.equals(aufgabenbereiche.get(i).getId(), aufgabenbereich.getId())){
-                aufgabenbereiche.set(i, aufgabenbereich);
-            }
-        }
+
     }
     
     public Aufgabenbereich getAufgabenbereichById(Long id){
-        return aufgabenbereiche.stream().filter(aufgabenbereich -> Objects.equals(aufgabenbereich.getId(), id)).findFirst().get();
+        return this.em.find(Aufgabenbereich.class, id);
     }
     
     public static AufgabenbereichRepository getInstance(){

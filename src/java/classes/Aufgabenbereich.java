@@ -17,7 +17,7 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = DatabaseConstants.AUFGABENBEREICH_TABLE)
 @NamedQueries({
-    @NamedQuery( name="aufgabenbereich.findAll",
+    @NamedQuery( name=DatabaseConstants.AUFGABENBEREICH_SELECT_ALL,
             query="SELECT t FROM "+DatabaseConstants.AUFGABENBEREICH_TABLE+" t")
 })
 public class Aufgabenbereich implements Serializable {

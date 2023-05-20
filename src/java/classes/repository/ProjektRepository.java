@@ -35,41 +35,6 @@ public class ProjektRepository {
     
     EntityTransaction utx = em.getTransaction();
     
-    
-    ProjektRepository() {
-        // Should fetch all projects from the data source (e.g database)
-        // Because of a missing database implementation, the constructor creates some example data
-        Projekt p1 = new Projekt();
-        p1.setId(1L);
-        p1.setTitel("Projekt 1");
-        p1.setKurzbeschreibung("Kurzbeschriebung Projekt 1");
-        p1.setLogopath("/logo1.jpg");
-        p1.setStartdatum(LocalDateTime.now());
-        
-        Projekt p2 = new Projekt();
-        p2.setId(2L);
-        p2.setTitel("Projekt 2");
-        p2.setKurzbeschreibung("Kurzbeschriebung Projekt 2");
-        p2.setLogopath("/logo2.jpg");
-        p2.setStartdatum(LocalDateTime.now());
-        
-        Projekt p3 = new Projekt();
-        p3.setId(3L);
-        p3.setTitel("Projekt 3");
-        p3.setKurzbeschreibung("Kurzbeschriebung Projekt 3");
-        p3.setLogopath("/logo3.jpg");
-        p3.setStartdatum(LocalDateTime.now());
-        
-        // add example projects
-        try {
-            addProjekt(p1);
-            addProjekt(p2);
-            addProjekt(p3);
-        } catch (Exception ex) {
-            Logger.getLogger(ProjektRepository.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
     public List<Projekt> getProjekte(){
         Query query = this.em.createNamedQuery(DatabaseConstants.PROJEKT_SELECT_ALL, Projekt.class);
         return query.getResultList();

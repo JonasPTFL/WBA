@@ -12,7 +12,7 @@ import jakarta.ws.rs.core.Application;
  *
  * @author gbehrens
  */
-@jakarta.ws.rs.ApplicationPath("webresources")  
+@jakarta.ws.rs.ApplicationPath(RestConstants.APPLICATION_PATH)  
 public class ApplicationConfig extends Application {
 
     @Override

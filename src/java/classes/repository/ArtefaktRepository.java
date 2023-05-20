@@ -51,29 +51,6 @@ public class ArtefaktRepository {
     
     EntityTransaction utx = em.getTransaction();
     
-    ArtefaktRepository() {
-        // Should fetch all data from the data source (e.g database)
-        // Because of a missing database implementation, the constructor creates some example data
-        Artefakt a1 = new Artefakt();
-        a1.setId(1L);
-        a1.setTitel("Artefakt X");
-        a1.setGeplanteArbeitszeit(5);
-        a1.setKurzbeschreibung("Kurzbeschriebung Artefakt 1");
-        
-        Artefakt a2 = new Artefakt();
-        a2.setId(2L);
-        a2.setTitel("Artefakt 2");
-        a2.setGeplanteArbeitszeit(3);
-        a2.setKurzbeschreibung("Kurzbeschriebung Artefakt 2");
-        
-        try {
-            addArtefakt(a1);
-            addArtefakt(a2);
-        } catch (Exception ex) {
-            Logger.getLogger(ArtefaktRepository.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
-    
     public List<Artefakt> getArtefakte(){
         Query query = this.em.createNamedQuery(DatabaseConstants.ARTEFAKT_SELECT_ALL, Artefakt.class);
         return query.getResultList();

@@ -26,7 +26,6 @@ import java.util.logging.Logger;
  * @author ffehring
  */
 @Path(RestConstants.PROJECT_PATH)    //Pfad der Ressource wird gesetzt
-
 public class ProjektResource implements Serializable {    
     @POST
     @Consumes(MediaType.APPLICATION_JSON)

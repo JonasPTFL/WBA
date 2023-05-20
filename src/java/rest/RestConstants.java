@@ -9,9 +9,10 @@ package rest;
  * @author JP-Laptop
  */
 public class RestConstants {
-    public static final String PROJECT_PATH = "projekt";
-    public static final String AUFGABENBEREICH_PATH = "aufgabenbereich";
-    public static final String ARTEFAKT_PATH = "artefakt";
+    public static final String APPLICATION_PATH = "api";
+    public static final String PROJECT_PATH = "projekte";
+    public static final String AUFGABENBEREICH_PATH = "aufgabenbereiche";
+    public static final String ARTEFAKT_PATH = "artefakte";
     
     /*
     * Generates a path to a specific object
