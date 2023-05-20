@@ -8,6 +8,11 @@ public class DatabaseConstants {
     public static final String PROJECT_TABLE = "Projekt";
     public static final String AUFGABENBEREICH_TABLE = "Aufgabenbereich";
     public static final String ARTEFAKT_TABLE = "Artefakt";
-    public static final String PROJEKT_ARTEFAKT_TABLE = "ProjektArtefakt";
-    public static final String PROJEKT_AUFGABENBEREICH_TABLE = "ProjektAufgabenbereich";
+    public static final String PROJEKT_ARTEFAKT_TABLE = "Projekt_Artefakt";
+    public static final String PROJEKT_AUFGABENBEREICH_TABLE = "Projekt_Aufgabenbereich";
+    
+    
+    public static final String ARTEFAKT_SELECT_ALL = "artefakt.findAll";
+    public static final String PROJEKT_SELECT_ALL = "projekt.findAll";
+    public static final String PU_NAME = "JPA_ExamplePU";
 }

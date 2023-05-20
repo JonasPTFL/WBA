@@ -2,14 +2,16 @@ package classes;
 
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
-import javax.xml.bind.annotation.XmlRootElement;
+import java.io.Serializable;
+import java.time.LocalDateTime;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.NamedQueries;
+import jakarta.persistence.NamedQuery;
+import jakarta.persistence.Table;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
  * Represents a project
@@ -20,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = DatabaseConstants.PROJECT_TABLE)
 @NamedQueries({
-    @NamedQuery( name="projekt.findAll",
+    @NamedQuery( name=DatabaseConstants.PROJEKT_SELECT_ALL,
             query="SELECT p FROM "+DatabaseConstants.PROJECT_TABLE+" p")
 })
 

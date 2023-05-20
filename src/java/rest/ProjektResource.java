@@ -16,6 +16,8 @@ import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.core.Response.ResponseBuilder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 
 /**
@@ -30,12 +32,17 @@ public class ProjektResource implements Serializable {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response create(ProjektAdapter pa) {
+        try {
              //adapter in Objekt umwandeln - Adapater zur Umwandlung des Datums von JSON und für Referenzen notwendig
             Projekt proj = pa.toProject();
             ProjektRepository.getInstance().addProjekt(proj);
             URI location = URI.create(RestConstants.createObjectLocationPath(RestConstants.PROJECT_PATH, proj.getId()));
             ResponseBuilder rb = Response.ok(location); // mit created erfolgt hier keine Ausgabe?!
             return rb.build();
+        } catch (Exception ex) {
+            Logger.getLogger(ProjektResource.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.ok(ex.toString()).build();
+        }
     }
     
     @PUT

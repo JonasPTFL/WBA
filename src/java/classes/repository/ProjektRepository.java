@@ -4,15 +4,37 @@
  */
 package classes.repository;
 
+import classes.Artefakt;
+import classes.DatabaseConstants;
 import classes.Projekt;
+import jakarta.annotation.Resource;
+import jakarta.ejb.Stateless;
+import jakarta.ejb.TransactionManagement;
+import jakarta.ejb.TransactionManagementType;
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.EntityManagerFactory;
+import jakarta.persistence.EntityTransaction;
+import jakarta.persistence.Persistence;
+import jakarta.persistence.Query;
+import jakarta.transaction.SystemException;
+import jakarta.transaction.UserTransaction;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
+@Stateless
+@TransactionManagement(TransactionManagementType.BEAN)
 public class ProjektRepository {
     private static final ProjektRepository INSTANCE = new ProjektRepository();
-    private final List<Projekt> projekte = new ArrayList();
+    
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory(DatabaseConstants.PU_NAME);
+    EntityManager em = emf.createEntityManager();
+    
+    EntityTransaction utx = em.getTransaction();
+    
     
     ProjektRepository() {
         // Should fetch all projects from the data source (e.g database)
@@ -38,30 +60,32 @@ public class ProjektRepository {
         p3.setLogopath("/logo3.jpg");
         p3.setStartdatum(LocalDateTime.now());
         
-        // add example projects to list 
-        projekte.add(p1);
-        projekte.add(p2);
-        projekte.add(p3);
-    }
-    
-    public List<Projekt> getProjekte(){
-        return projekte;
-    }
-    
-    public void addProjekt(Projekt projekt){
-        projekte.add(projekt);
-    }
-    
-    public void updateProjekt(Projekt projekt){
-        for(int i=0;i<projekte.size();i++){
-            if(Objects.equals(projekte.get(i).getId(), projekt.getId())){
-                projekte.set(i, projekt);
-            }
+        // add example projects
+        try {
+            addProjekt(p1);
+            addProjekt(p2);
+            addProjekt(p3);
+        } catch (Exception ex) {
+            Logger.getLogger(ProjektRepository.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     
+    public List<Projekt> getProjekte(){
+        Query query = this.em.createNamedQuery(DatabaseConstants.PROJEKT_SELECT_ALL, Projekt.class);
+        return query.getResultList();
+    }
+    
+    public void addProjekt(Projekt projekt) throws Exception {
+        this.utx.begin();
+        this.em.persist(projekt);
+        this.utx.commit();
+    }
+    
+    public void updateProjekt(Projekt projekt){
+    }
+    
     public Projekt getProjektById(Long id){
-        return projekte.stream().filter(projekt -> Objects.equals(projekt.getId(), id)).findFirst().get();
+        return this.em.find(Projekt.class, id);
     }
     
     public static ProjektRepository getInstance(){
