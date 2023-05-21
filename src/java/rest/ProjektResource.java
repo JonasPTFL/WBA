@@ -69,7 +69,16 @@ public class ProjektResource implements Serializable {
     @Path("filter_titel")
     @Produces(MediaType.APPLICATION_JSON)
     public Response get(@QueryParam("titel") String titel) {
-        ResponseBuilder rb = Response.ok(ProjektRepository.getInstance().getProjektByTitle(titel));
+        ResponseBuilder rb = Response.ok(ProjektRepository.getInstance().getProjekteByTitle(titel));
+        return rb.build();
+    }
+    
+    
+    @GET
+    @Path("filter_archiviert")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getArchiviert(@QueryParam("titel") String titel) {
+        ResponseBuilder rb = Response.ok(ProjektRepository.getInstance().getArchivierteProjekteByTitle(titel));
         return rb.build();
     }
     
@@ -79,6 +88,14 @@ public class ProjektResource implements Serializable {
     @Produces(MediaType.APPLICATION_JSON)
     public Response get() {
         ResponseBuilder rb = Response.ok(ProjektRepository.getInstance().getProjekte());
+        return rb.build();
+    }
+    
+    @GET
+    @Path("liste_archiviert")
+    @Produces(MediaType.APPLICATION_JSON)
+    public Response getArchiviert() {
+        ResponseBuilder rb = Response.ok(ProjektRepository.getInstance().getArchivierteProjekte());
         return rb.build();
     }
 }

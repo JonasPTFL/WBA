@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import rest.ProjektResource;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.BEAN)
@@ -54,8 +55,14 @@ public class ProjektRepository {
         return this.em.find(Projekt.class, id);
     }
     
-    public List<Projekt> getProjektByTitle(String titel){
+    public List<Projekt> getProjekteByTitle(String titel){
         Query query = this.em.createNamedQuery(DatabaseConstants.PROJEKT_FILTER_TITLE, Projekt.class);
+        query.setParameter("titel", "%" + titel + "%");
+        return query.getResultList();
+    }
+    
+    public List<Projekt> getArchivierteProjekteByTitle(String titel){
+        Query query = this.em.createNamedQuery(DatabaseConstants.PROJEKT_FILTER_ARCHIVIERT_TITLE, Projekt.class);
         query.setParameter("titel", "%" + titel + "%");
         return query.getResultList();
     }

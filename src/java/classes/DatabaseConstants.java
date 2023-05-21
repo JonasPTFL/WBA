@@ -19,6 +19,7 @@ public class DatabaseConstants {
     
     public static final String PROJEKT_SELECT_ALL = "projekt.findAll";
     public static final String PROJEKT_FILTER_TITLE = "projekt.filterTitle";
+    public static final String PROJEKT_FILTER_ARCHIVIERT_TITLE = "projekt.filterArchiviertTitle";
     public static final String PROJEKT_SELECT_ARCHIVIERT = "projekt.findArchiviert";
     
     public static final String AUFGABENBEREICH_SELECT_ALL = "aufgabenbereich.findAll";

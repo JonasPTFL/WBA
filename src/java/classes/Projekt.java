@@ -10,8 +10,10 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.NamedQueries;
 import jakarta.persistence.NamedQuery;
+import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import jakarta.xml.bind.annotation.XmlRootElement;
+import java.util.List;
 
 /**
  * Represents a project
@@ -23,11 +25,13 @@ import jakarta.xml.bind.annotation.XmlRootElement;
 @Table(name = DatabaseConstants.PROJECT_TABLE)
 @NamedQueries({
     @NamedQuery( name=DatabaseConstants.PROJEKT_SELECT_ALL,
-            query="SELECT t FROM "+DatabaseConstants.PROJECT_TABLE+" t"),
+            query="SELECT t FROM "+DatabaseConstants.PROJECT_TABLE+" t "),
     @NamedQuery( name=DatabaseConstants.PROJEKT_FILTER_TITLE,
             query="SELECT t FROM "+DatabaseConstants.PROJECT_TABLE+" t WHERE t.titel LIKE :titel"),
     @NamedQuery( name=DatabaseConstants.PROJEKT_SELECT_ARCHIVIERT,
-            query="SELECT t FROM "+DatabaseConstants.PROJECT_TABLE+" t WHERE t.id = 1")//WHERE t.archiviert = 1")
+            query="SELECT t FROM "+DatabaseConstants.PROJECT_TABLE+" t WHERE t.archiviert = true"),
+    @NamedQuery( name=DatabaseConstants.PROJEKT_FILTER_ARCHIVIERT_TITLE,
+            query="SELECT t FROM "+DatabaseConstants.PROJECT_TABLE+" t WHERE t.titel LIKE :titel AND t.archiviert = true")
 })
 
 public class Projekt implements Serializable {
@@ -46,7 +50,37 @@ public class Projekt implements Serializable {
     
     private LocalDateTime startdatum;
 
-    //private boolean archiviert;
+    private boolean archiviert;
+    
+    @OneToMany()
+    private List<Artefakt> artefakte;
+
+    public List<Artefakt> getArtefakte() {
+        return artefakte;
+    }
+
+    public void setArtefakte(List<Artefakt> artefakte) {
+        this.artefakte = artefakte;
+    }
+
+    public List<Aufgabenbereich> getAufgabenbereiche() {
+        return aufgabenbereiche;
+    }
+
+    public void setAufgabenbereiche(List<Aufgabenbereich> aufgabenbereiche) {
+        this.aufgabenbereiche = aufgabenbereiche;
+    }
+    
+    @OneToMany()
+    private List<Aufgabenbereich> aufgabenbereiche;
+
+    public boolean isArchiviert() {
+        return archiviert;
+    }
+
+    public void setArchiviert(boolean archiviert) {
+        this.archiviert = archiviert;
+    }
     
  
     public String getTitel() {

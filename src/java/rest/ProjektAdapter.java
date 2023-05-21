@@ -14,6 +14,15 @@ public class ProjektAdapter {
     private String kurzbeschreibung;
     private String startdate;
     private Long id; 
+    private boolean archiviert;
+
+    public boolean isArchiviert() {
+        return archiviert;
+    }
+
+    public void setArchiviert(boolean archiviert) {
+        this.archiviert = archiviert;
+    }
     private String logopath;
 
     public void setKurzbeschreibung(String kurzbeschreibung) {
@@ -39,6 +48,7 @@ public class ProjektAdapter {
         Projekt proj = new Projekt();
         proj.setId(this.id);
         proj.setTitel(this.titel);
+        proj.setArchiviert(this.archiviert);
         proj.setKurzbeschreibung(this.kurzbeschreibung);
         proj.setLogopath(this.logopath);
         proj.setStartdatum(LocalDateTime.parse(this.startdate));  //ISO-Datumsformat yyyy-mm-ddT10:15:30
