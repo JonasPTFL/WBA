@@ -54,6 +54,9 @@ public class Projekt implements Serializable {
     
     @OneToMany()
     private List<Artefakt> artefakte;
+    
+    @OneToMany()
+    private List<Aufgabenbereich> aufgabenbereiche;
 
     public List<Artefakt> getArtefakte() {
         return artefakte;
@@ -70,9 +73,6 @@ public class Projekt implements Serializable {
     public void setAufgabenbereiche(List<Aufgabenbereich> aufgabenbereiche) {
         this.aufgabenbereiche = aufgabenbereiche;
     }
-    
-    @OneToMany()
-    private List<Aufgabenbereich> aufgabenbereiche;
 
     public boolean isArchiviert() {
         return archiviert;
