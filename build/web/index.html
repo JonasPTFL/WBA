@@ -16,25 +16,45 @@
             <img src="header320x34.jpg" alt="Kopfzeilenbild">
         </picture>
         <br>
-        <a href="startseite"><img src="startseite.svg" alt="Startseite" width="15" /></a>
-        <a href="projekte">Projekte</a>
-        <a href="neues_projekt">Neues Projekt</a>
+        <a href="/"><img src="startseite.svg" alt="Startseite" width="15" /></a>
+        <a href="projekte.html">Projekte</a>
+        <a href="neues_projekt.html">Neues Projekt</a>
     </header>
     <hr>
     <body>
-        <div>Index</div>
+        <h1>Willkommen in ProjectBoard!</h1>
+        <h4>Inhalt dieser Seite</h4>
+        <p>Dies ist die Startseite der Webanwendung. Hier wird dir eine Übersicht deines letzten Projektes dargestellt und du kannst 
+        alle relevanten Funktionen erreichen, um deine Projekte zu verwalten.</p>
+        <video width="320" height="240" controls>
+           <source src="beispiel_video.mp4" type="video/mp4">
+         Der Internetbrowser untertützt das Abspielen von Videos nicht.
+         </video> 
+        <h4>Neuste Projekte</h4>
+         <table>
+            <tr>
+              <th>Titel</th>
+              <th>Kurzbeschreibung</th>
+            </tr>
+            <tr>
+              <td>Projekt 1</td>
+              <td>Kurzbeschreibung 1</td>
+            </tr>
+            <tr>
+              <td>Projekt 2</td>
+              <td>Kurzbeschreibung 2</td>
+            </tr>
+          </table> 
     </body>
     <hr>
     <footer>
-        <form action="anmelden" method="post">
+        <form action="/" method="post">
 
         <label for="benutzername">Benutzername</label>
         <input type="text" name="benutzername" required>
 
         <label for="passwort">Passwort</label>
         <input type="password" name="passwort" required>
-
-        <br>
         
         <button type="submit">Anmelden</button>
         <a href="registrieren">Neu registrieren</a>

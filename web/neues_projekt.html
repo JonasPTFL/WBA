@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+    <head>  
+        <title>ProjectBoard</title>
+        <meta name="descriptipon" content="Seite zur Verwaltung des Zeitaufwands für Projekte">
+        <meta name="author" content="Marian Koge & Jonas Pollpeter">
+        <meta name="keywords" content="Projekt, Aufwand, Verwaltung">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <header>
+        <picture>
+            <source media="(min-width: 1920px)" srcset="header1920x200.png"> 
+            <source media="(min-width: 1280px)" srcset="header1280x133.png">
+            <source media="(min-width: 640px)" srcset="header640x67.png">
+            <img src="header320x34.jpg" alt="Kopfzeilenbild">
+        </picture>
+        <br>
+        <a href="index.html"><img src="startseite.svg" alt="Startseite" width="15" /></a>
+        <a href="projekte.html">Projekte</a>
+        <a href="neues_projekt.html">Neues Projekt</a>
+    </header>
+    <hr>
+    <body>
+        <h1>Neues-Projekte hinzufügen</h1>
+        <form action="/" method="post">
+
+        <label for="titel">Projekttitel</label>
+        <input type="text" name="titel" required>
+        <label for="kurzbeschreibung">Kurzbeschreibung</label>
+        <input type="text" name="kurzbeschreibung">
+        <label for="beschreibung">Beschreibung (Lang)</label>
+        <input type="text" name="beschreibung">
+        
+        <label for="ziel1">Projektziel 1</label>
+        <select id="ziel1" name="ziel1">
+          <option value="ziel1">Ziel1</option>
+          <option value="ziel2">Ziel4</option>
+          <option value="ziel3">Ziel3</option>
+          <option value="ziel4">Ziel2</option>
+        </select>
+        
+        <label for="ziele">Projektziel 2</label>
+        <select id="ziel2" name="ziel2">
+          <option value="ziel1">Ziel1</option>
+          <option value="ziel2">Ziel4</option>
+          <option value="ziel3">Ziel3</option>
+          <option value="ziel4">Ziel2</option>
+        </select>
+        
+        <label for="startdatum">Startdatum</label>
+        <input type="date" name="startdatum">
+        <label for="enddatum">Enddatum</label>
+        <input type="date" name="enddatum">
+        <label for="ziele">Ziele</label>
+        <input type="text" name="ziele">
+        <label for="logo">Logodatei</label>
+        <input type="text" name="logo">
+
+        <br>
+        
+        <button type="submit">Erstellen</button>
+       </form> 
+    </body>
+    <hr>
+    <footer>
+        <form action="/" method="post">
+
+        <label for="benutzername">Benutzername</label>
+        <input type="text" name="benutzername" required>
+
+        <label for="passwort">Passwort</label>
+        <input type="password" name="passwort" required>
+
+        <br>
+        
+        <button type="submit">Anmelden</button>
+        <a href="registrieren">Neu registrieren</a>
+       </form> 
+        <div>
+            
+       <a href="impressum">Impressum</a>
+       <a href="datenschutzerklaerung">Datenschutzerklaerung</a>
+       <a href="haftungsausschluss">Haftungsausschluss</a>
+       <a href="copyright">Copyright</a>
+       <a href="kontaktinformationen">Kontaktinformationen</a>
+       
+       <a href="#">Zum Seitenanfang</a>
+        </div>
+    </footer>
+</html>
