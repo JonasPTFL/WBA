@@ -22,7 +22,54 @@
     </header>
     <hr>
     <body>
-        <h1>Projekt-Detail Seite</h1>
+        <h1>Projektseite</h1>
+        
+        <img src="projektlogo1.png" alt="Projektlogo1" width="100" />
+        
+        <h2>Name: Projekt 1</h2>
+        <p>Autor: Marian</p>
+        
+        <h2 id="kb">Kurzbeschreibung</h2>
+        <p>Kurzbeschreibung Projekt 1</p>
+        
+        <h2 id="lb">Langbeschreibung</h2>
+        <p>Langbeschreibung <br>Projekt 1<br>Lange Beschreibung...</p>
+         <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+        
+        <h2 id="pz">Projektziele</h2>
+         <ol>
+            <li>Projektziel 1</li>
+            <li>Projektziel 2</li>
+          </ol> 
+        
+         <ul>
+            <li><a href="#kb">Zu: Kurzbeschreibung</a></li>
+            <li><a href="#lb">Zu: Langbeschreibung</a></li>
+            <li><a href="#pz">Zu: Projektzielen</a></li>
+          </ul> 
+        
+        <form action="/" method="POST">
+            <label for="kommentar">Kommentar</label><br>
+            <textarea rows="5" cols="30" id="kommentar" name="kommentar"></textarea>
+            <br>
+              <input type="radio" name="bewertung" value="1">
+              <label for="bewertung_1">1 Stern</label><br>
+            
+              <input type="radio" name="bewertung" value="2">
+              <label for="bewertung_2">2 Sterne</label><br>
+            
+              <input type="radio" name="bewertung" value="3">
+              <label for="bewertung_3">3 Sterne</label><br>
+            
+              <input type="radio" name="bewertung" value="4">
+              <label for="bewertung_4">4 Sterne</label><br>
+            
+              <input type="radio" name="bewertung" value="5">
+              <label for="bewertung_5">5 Sterne</label><br>
+            
+
+           <input type="submit" value="Speichern">
+          </form> 
     </body>
     <hr>
     <footer>
