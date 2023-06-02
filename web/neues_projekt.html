@@ -7,22 +7,33 @@
         <meta name="keywords" content="Projekt, Aufwand, Verwaltung">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="main_style.css">
     </head>
     <header>
+        <form action="/" method="post" class="login-bereich">
+
+            <input type="text" name="benutzername" placeholder="Benutzername" class="login-eingabefeld" required>
+            <br>
+            <input type="password" name="passwort" placeholder="Passwort" class="login-eingabefeld" required>
+            <br>
+            <button type="submit">Anmelden</button>
+            <br>
+            <a href="registrieren">Neu registrieren</a>
+       </form> 
         <picture>
             <source media="(min-width: 1920px)" srcset="header1920x200.png"> 
             <source media="(min-width: 1280px)" srcset="header1280x133.png">
             <source media="(min-width: 640px)" srcset="header640x67.png">
             <img src="header320x34.jpg" alt="Kopfzeilenbild">
         </picture>
-        <br>
+    </header>
+    <div class="navigation">
         <a href="index.html"><img src="startseite.svg" alt="Startseite" width="15" /></a>
         <a href="projekte.html">Projekte</a>
         <a href="neues_projekt.html">Neues Projekt</a>
-    </header>
-    <hr>
+    </div>
     <body>
-        <h1>Neues-Projekte hinzufügen</h1>
+ <h1>Neues-Projekte hinzufügen</h1>
         <form action="/" method="post">
 
         <label for="titel">Projekttitel</label>
@@ -62,28 +73,13 @@
     </body>
     <hr>
     <footer>
-        <form action="/" method="post">
 
-        <label for="benutzername">Benutzername</label>
-        <input type="text" name="benutzername" required>
+        <a href="impressum">Impressum</a>
+        <a href="datenschutzerklaerung">Datenschutzerklaerung</a>
+        <a href="haftungsausschluss">Haftungsausschluss</a>
+        <a href="copyright">Copyright</a>
+        <a href="kontaktinformationen">Kontaktinformationen</a>
 
-        <label for="passwort">Passwort</label>
-        <input type="password" name="passwort" required>
-
-        <br>
-        
-        <button type="submit">Anmelden</button>
-        <a href="registrieren">Neu registrieren</a>
-       </form> 
-        <div>
-            
-       <a href="impressum">Impressum</a>
-       <a href="datenschutzerklaerung">Datenschutzerklaerung</a>
-       <a href="haftungsausschluss">Haftungsausschluss</a>
-       <a href="copyright">Copyright</a>
-       <a href="kontaktinformationen">Kontaktinformationen</a>
-       
-       <a href="#">Zum Seitenanfang</a>
-        </div>
+        <a href="#" class="link-zum-seitenanfang">Zum Seitenanfang</a>
     </footer>
 </html>
