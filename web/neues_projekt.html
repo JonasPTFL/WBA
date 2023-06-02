@@ -8,6 +8,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="main_style.css">
+        <link rel="stylesheet" href="projekt_detail.css">
+        <link rel="stylesheet" href="neues_projekt.css">
     </head>
     <header>
         <form action="/" method="post" class="login-bereich">
@@ -33,43 +35,60 @@
         <a href="neues_projekt.html">Neues Projekt</a>
     </div>
     <body>
- <h1>Neues-Projekte hinzufügen</h1>
         <form action="/" method="post">
+        <div class="projektedtail-container">   
+            <div class="informationen">   
+                <h1>Projektseite</h1>  
+                <div class="projektkopf">
+                    
 
-        <label for="titel">Projekttitel</label>
-        <input type="text" name="titel" required>
-        <label for="kurzbeschreibung">Kurzbeschreibung</label>
-        <input type="text" name="kurzbeschreibung">
-        <label for="beschreibung">Beschreibung (Lang)</label>
-        <input type="text" name="beschreibung">
-        
-        <label for="ziel1">Projektziel 1</label>
-        <select id="ziel1" name="ziel1">
-          <option value="ziel1">Ziel1</option>
-          <option value="ziel2">Ziel4</option>
-          <option value="ziel3">Ziel3</option>
-          <option value="ziel4">Ziel2</option>
-        </select>
-        
-        <label for="ziele">Projektziel 2</label>
-        <select id="ziel2" name="ziel2">
-          <option value="ziel1">Ziel1</option>
-          <option value="ziel2">Ziel4</option>
-          <option value="ziel3">Ziel3</option>
-          <option value="ziel4">Ziel2</option>
-        </select>
-        
-        <label for="startdatum">Startdatum</label>
-        <input type="date" name="startdatum">
-        <label for="enddatum">Enddatum</label>
-        <input type="text" name="ziele">
-        <label for="logo">Logodatei</label>
-        <input type="text" name="logo">
+                    <input type="file" id="bildwaehlen" name="projekt_logo"/>
+                    <label for='bildwaehlen'> <img class="projektlogo" src="bild_waehlen.jpg" alt="Bild auswählen" width="100" /></label>
 
-        <br>
-        
-        <button type="submit">Erstellen</button>
-       </form> 
+                    
+                    <h2 class="projektitel">Name: <input type="text" name="titel" required></h2>
+                    
+                
+                    <p class="projektleiter">Autor: <input type="text" name="autor" required></p>
+                </div>
+
+                <h2 id="kb">Kurzbeschreibung</h2>
+                <p> <input type="text" name="kurzbeschreibung" class="ganze-breite"></p>
+
+                <h2 id="lb">Langbeschreibung</h2>
+                <textarea name="beschreibung" class="ganze-breite"></textarea>
+                 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
+
+                <h2 id="pz">Projektziele</h2>
+                 <select id="ziel1" name="ziel1">
+                    <option value="ziel1">Ziel1</option>
+                    <option value="ziel2">Ziel4</option>
+                    <option value="ziel3">Ziel3</option>
+                    <option value="ziel4">Ziel2</option>
+                  </select>
+                        <select id="ziel2" name="ziel2">
+                    <option value="ziel1">Ziel1</option>
+                    <option value="ziel2">Ziel4</option>
+                    <option value="ziel3">Ziel3</option>
+                    <option value="ziel4">Ziel2</option>
+                  </select>
+                
+                <h2>Startdatum</h2>
+                <input type="date" name="startdatum">
+                <h2>Enddatum</h2>
+                <input type="date" name="enddatum">
+
+
+                <input type="submit" value="Speichern">
+            </div>
+            
+
+            <ul class="inhaltsmenue">
+               <li><a href="#kb">Zu: Kurzbeschreibung</a></li>
+               <li><a href="#lb">Zu: Langbeschreibung</a></li>
+               <li><a href="#pz">Zu: Projektzielen</a></li>
+             </ul> 
+        </div>
     </body>
     <hr>
     <footer>
