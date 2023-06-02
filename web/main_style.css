@@ -1,10 +1,11 @@
-* {
+* :not(ol) {
   margin: 0;
   padding: 0;
 }
 
 body {
   background-color: #F5FFFA;
+  overflow-x: hidden;
 }
 
 header {

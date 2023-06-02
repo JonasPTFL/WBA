@@ -1,0 +1,65 @@
+
+.inhaltsmenue {
+    color: white;
+    width: 200px;
+    background-color: black;
+    padding: 20px;
+    border-left: 3px solid #00BFFF;
+    margin-top: 4px;
+    list-style-type: none;
+    padding: 5px;
+}
+.inhaltsmenue li {
+    width: 200px;
+}
+.inhaltsmenue a {
+    color: white;
+}
+
+
+.inhaltsmenue li:hover {
+  background-color: #87CEFA;
+  width: 400px;
+}
+
+.projektedtail-container {
+  display: flex;
+  width: 100%;
+}
+
+.informationen {
+  padding: 5px;
+  flex: 1;
+}
+
+.projektitel{
+    font-size: 2em;
+    font-family: sans-serif
+}
+.projektkopf {
+    position: sticky;
+    top: 0;
+    display: flex;
+    background-color: #f5fffa;
+    align-items:flex-start;
+    align-content:flex-start;
+    align-self: flex-start;
+}
+.projektkopf h2, .projektkopf p {
+    background-color: #1B1C1D;
+    color: white;
+}
+.projektleiter {
+    margin-left: auto; 
+    margin-right: 0;
+}
+
+.kommentarfeld {
+    border: 3px solid yellow;
+}
+
+.kommentarfeld:focus {
+    border: 3px solid purple;
+    background-color: black;
+    color: white;
+}
