@@ -7,6 +7,10 @@ body {
   background-color: #F5FFFA;
 }
 
+header {
+    background-color: #7f7f7f;
+}
+
 .link-zum-seitenanfang {
   position: fixed;
   bottom: 10px;
@@ -19,7 +23,7 @@ body {
 .login-bereich {
   float: right;
   padding: 10px;
-  background-color: #858585;
+  background-color: #adacac;
 }
 
 .login-eingabefeld {
@@ -27,7 +31,7 @@ body {
 }
 
 .navigation {
-  margin: 0;
+  margin: -4px;
   padding: 0;
   background-color: black;
   border-top: 3px solid #00BFFF;

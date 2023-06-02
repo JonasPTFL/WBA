@@ -8,6 +8,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="main_style.css">
+        <link rel="stylesheet" href="startseite_style.css">
     </head>
     <header>
         <form action="/" method="post" class="login-bereich">
@@ -21,9 +22,9 @@
             <a href="registrieren">Neu registrieren</a>
        </form> 
         <picture>
-            <source media="(min-width: 1920px)" srcset="header1920x200.png"> 
-            <source media="(min-width: 1280px)" srcset="header1280x133.png">
-            <source media="(min-width: 640px)" srcset="header640x67.png">
+            <source media="(min-width: 1920px)" srcset="header1920x200.jpg"> 
+            <source media="(min-width: 1280px)" srcset="header1280x133.jpg">
+            <source media="(min-width: 640px)" srcset="header640x67.jpg">
             <img src="header320x34.jpg" alt="Kopfzeilenbild">
         </picture>
     </header>
@@ -33,29 +34,42 @@
         <a href="neues_projekt.html">Neues Projekt</a>
     </div>
     <body>
-        <h1>Willkommen <br> im ProjectBoard!</h1>
-        <h4>Inhalt dieser Seite</h4>
-        <p>Dies ist die Startseite der Webanwendung. Hier wird dir eine Übersicht deines letzten Projektes dargestellt und du kannst 
-        alle relevanten Funktionen erreichen, um deine Projekte zu verwalten.</p>
-        <video width="320" height="240" controls>
-           <source src="beispiel_video.mp4" type="video/mp4">
-         Der Internetbrowser untertützt das Abspielen von Videos nicht.
-         </video> 
-        <h4>Neuste Projekte</h4>
-         <table>
-            <tr>
-              <th>Titel</th>
-              <th>Kurzbeschreibung</th>
-            </tr>
-            <tr>
-              <td>Projekt 1</td>
-              <td>Kurzbeschreibung 1</td>
-            </tr>
-            <tr>
-              <td>Projekt 2</td>
-              <td>Kurzbeschreibung 2</td>
-            </tr>
-          </table> 
+        <h1 class="willkommensnachricht">
+            <span class="erste-zeile">Willkommen</span>
+            <br>
+            <span class="zweite-zeile">im ProjectBoard!</span></h1>
+        <div class="aufteilung">
+            <div class="seitenteil">
+                <h4>Inhalt dieser Seite</h4>
+                <p>Dies ist die Startseite der Webanwendung. Hier wird dir eine Übersicht deines letzten Projektes dargestellt und du kannst 
+                alle relevanten Funktionen erreichen, um deine Projekte zu verwalten.</p>
+                <video width="320" height="240" controls>
+                   <source src="beispiel_video.mp4" type="video/mp4">
+                 Der Internetbrowser untertützt das Abspielen von Videos nicht.
+                 </video> 
+            </div>
+            <div class="seitenteil">
+                <h4>Neuste Projekte</h4>
+                <table>
+                   <tr>
+                     <th>Titel</th>
+                     <th>Kurzbeschreibung</th>
+                   </tr>
+                   <tr>
+                       <td><a href="projekt_detail.html">Projekt 1</a></td>
+                     <td>Kurzbeschreibung 1</td>
+                   </tr>
+                   <tr>
+                       <td><a href="projekt_detail_2.html">Projekt 2</a></td>
+                     <td>Kurzbeschreibung 2</td>
+                   </tr>
+                   <tr>
+                       <td><a href="projekt_detail.html">Projekt 3</a></td>
+                     <td>Kurzbeschreibung 3</td>
+                   </tr>
+                 </table>
+            </div>
+        </div>
     </body>
     <hr>
     <footer>

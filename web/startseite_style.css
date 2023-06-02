@@ -1,0 +1,52 @@
+body {
+  overflow-x: hidden;
+}
+
+@keyframes ersteZeileAnimation {
+    from { opacity: 1; }
+    to   { opacity: 0; }
+}
+
+@keyframes zweiteZeileAnimation {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+.willkommensnachricht {
+  background-color: black;
+  color: white;
+  height: 500px;
+  width: 100%;
+  display: inline-block; 
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  text-align: center;
+  font-size: 5em;  
+  display: flex;
+  
+  vertical-align: middle;
+}
+
+.willkommensnachricht .erste-zeile {
+  opacity: 0;
+  animation-name: ersteZeileAnimation;
+  animation-duration: 6s;
+}
+
+.willkommensnachricht .zweite-zeile {
+  opacity: 1;
+  animation-name: zweiteZeileAnimation;
+  animation-duration: 6s;
+}
+
+
+.aufteilung {
+  display: flex;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.seitenteil {
+  padding: 20px;
+  flex: 1;
+}
