@@ -1,0 +1,32 @@
+.kurzbeschreibung {
+    background-color: gray;
+    padding: 5px;
+}
+
+th {
+    background-color: #1B1C1D;
+    color: white;
+}
+
+.projektitel{
+    background-color: black;
+    font-size: 1.5em;
+}
+
+.link-button {
+  padding: 5px 10px 5px 10px;
+  background-color: gray;
+  color: white;
+  text-decoration: none;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+
+.link-button:hover~#filter-liste{
+    display: block;
+}
+
+#filter-liste {
+    display: none;
+}
