@@ -34,8 +34,6 @@ public class Aufgabenbereich implements Serializable {
     
     private String kurzbeschreibung;
 
-    
- 
     public String getTitel() {
         return titel;
     }
