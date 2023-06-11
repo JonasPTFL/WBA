@@ -70,3 +70,12 @@ for (var [key, value] of sprachen_texte.entries()) {
 
     }
 }
+
+function getLexikonText(key){
+    if(userLang == "de"){
+        return sprachen_texte.get(key).deutsch;
+    } else {
+        return sprachen_texte.get(key).englisch;
+
+    }
+}

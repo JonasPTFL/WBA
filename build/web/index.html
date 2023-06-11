@@ -36,7 +36,9 @@
     </header>
     <div class="navigation">
         <a href="index.html"><img src="startseite.svg" alt="Startseite" width="15" /></a>
-        <a href="projekte.html">Projekte</a>
+        <a href="projekte.html" id="navigation_projekte"><script>
+    document.getElementById("navigation_projekte").innerHTML = getLexikonText("navigation_projekte");
+                    </script></a>
         <a href="neues_projekt.html">Neues Projekt</a>
     </div>
     <body>
