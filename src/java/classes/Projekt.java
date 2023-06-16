@@ -51,28 +51,6 @@ public class Projekt implements Serializable {
     private LocalDateTime startdatum;
 
     private boolean archiviert;
-    
-    @OneToMany()
-    private List<Artefakt> artefakte;
-    
-    @OneToMany()
-    private List<Aufgabenbereich> aufgabenbereiche;
-
-    public List<Artefakt> getArtefakte() {
-        return artefakte;
-    }
-
-    public void setArtefakte(List<Artefakt> artefakte) {
-        this.artefakte = artefakte;
-    }
-
-    public List<Aufgabenbereich> getAufgabenbereiche() {
-        return aufgabenbereiche;
-    }
-
-    public void setAufgabenbereiche(List<Aufgabenbereich> aufgabenbereiche) {
-        this.aufgabenbereiche = aufgabenbereiche;
-    }
 
     public boolean isArchiviert() {
         return archiviert;
