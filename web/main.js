@@ -194,3 +194,58 @@ holeAufgabenbereiche();
 holeAufgabenbereich("Aufg");
 holeArtefakte();
 holeArtefakt("Art");
+
+let aufgabenbereich_neu = new Aufgabenbereich(0, "Titel1 NEU JavaScript", "Kurz1 NEU JavaScript");
+let artefakt_neu = new Artefakt(0, "titel1 NEU JavaScript", "Kurz1", aufgabenbereich_neu, 2);
+
+let date_neu = new Date(2023, 1, 1, 0, 0, 0, 0);
+let projekt_neu = new Projekt(0, "Titel1", "Kurz1 NEU JavaScript", "Logo1", date_neu, false, [artefakt_neu], [aufgabenbereich_neu]);
+
+console.log(JSON.stringify(projekt_neu));
+console.log(JSON.stringify(projekt_neu));
+console.log(JSON.stringify(artefakt_neu));
+
+fetch("api/projekte", {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(projekt_neu)
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log("Antwort auf POST projekte:"+data);
+  })
+  .catch(error => {
+    console.error('Fehler bei POST projekte:', error);
+  });
+  
+fetch("api/aufgabenbereiche", {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(aufgabenbereich_neu)
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log("Antwort auf POST aufgabenbereiche:"+data);
+  })
+  .catch(error => {
+    console.error('Fehler bei POST aufgabenbereiche:', error);
+  });
+  
+fetch("api/artefakte", {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify(artefakt_neu)
+})
+  .then(response => response.json())
+  .then(data => {
+    console.log("Antwort auf POST artefakte:"+data);
+  })
+  .catch(error => {
+    console.error('Fehler bei POST artefakte:', error);
+  });

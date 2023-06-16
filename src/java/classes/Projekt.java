@@ -66,7 +66,7 @@ public class Projekt implements Serializable {
     }
 
     public void setTitel(String titel) {
-        if(titel.length() > 255) throw new IllegalArgumentException("Titel darf nicht länger als 255 Zeichen sein");
+        if(titel == null || titel.length() > 255) throw new IllegalArgumentException("Titel darf nicht länger als 255 Zeichen sein");
         this.titel = titel;
     }
 
