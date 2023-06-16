@@ -1,7 +1,7 @@
 class Aufgabenbereich {
     constructor(id, titel, kurzbeschreibung) {
-        this._id = id;
-        this._titel = titel;
-        this._kurzbeschreibung = kurzbeschreibung;
+        this.id = id;
+        this.titel = titel;
+        this.kurzbeschreibung = kurzbeschreibung;
     }
 }

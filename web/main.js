@@ -197,20 +197,18 @@ holeArtefakt("Art");
 
 let aufgabenbereich_neu = new Aufgabenbereich(0, "Titel1 NEU JavaScript", "Kurz1 NEU JavaScript");
 let artefakt_neu = new Artefakt(0, "titel1 NEU JavaScript", "Kurz1", aufgabenbereich_neu, 2);
+let projekt_neu = new Projekt(0, "Titel1", "Kurz1 NEU JavaScript", "Logo1", "2023-06-15T10:15:30", false, [artefakt_neu], [aufgabenbereich_neu]);
 
-let date_neu = new Date(2023, 1, 1, 0, 0, 0, 0);
-let projekt_neu = new Projekt(0, "Titel1", "Kurz1 NEU JavaScript", "Logo1", date_neu, false, [artefakt_neu], [aufgabenbereich_neu]);
-
-console.log(JSON.stringify(projekt_neu));
-console.log(JSON.stringify(projekt_neu));
-console.log(JSON.stringify(artefakt_neu));
+let projekt_json = JSON.stringify(projekt_neu, ["titel", "kurzbeschreibung", "logopath", "archiviert", "startdate"]);
+let aufgabenbereich_json = JSON.stringify(aufgabenbereich_neu, ["titel", "kurzbeschreibung"]);
+let artefakt_json = JSON.stringify(artefakt_neu, ["titel", "kurzbeschreibung", "geplanteArbeitszeit"]);
 
 fetch("api/projekte", {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify(projekt_neu)
+  body: projekt_json
 })
   .then(response => response.json())
   .then(data => {
@@ -225,7 +223,7 @@ fetch("api/aufgabenbereiche", {
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify(aufgabenbereich_neu)
+  body: aufgabenbereich_json
 })
   .then(response => response.json())
   .then(data => {
@@ -240,7 +238,7 @@ fetch("api/artefakte", {
   headers: {
     'Content-Type': 'application/json'
   },
-  body: JSON.stringify(artefakt_neu)
+  body: artefakt_json
 })
   .then(response => response.json())
   .then(data => {
