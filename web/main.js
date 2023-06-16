@@ -21,10 +21,10 @@ let laufzeitSortiert = sortierer.sortiereLaufzeit().slice();
 console.log("laufzeitSortiert:");
 console.log(laufzeitSortiert);
 
-alert("Arbeitszeit: "+projekt1.berechneArbeitszeit());
+// alert("Arbeitszeit: "+projekt1.berechneArbeitszeit());
 
 var userLang = navigator.language || navigator.userLanguage; 
-alert ("The language is: " + userLang);
+// alert ("The language is: " + userLang);
 
 
 let sprachen_texte = new Map();
@@ -79,3 +79,118 @@ function getLexikonText(key){
 
     }
 }
+
+function convertJsonDataToProjekte(data){
+    return data.map(obj => {
+        return new Projekt(obj.id, obj.titel, obj.kurzbeschreibung, obj.logopath, obj.startdatum, obj.archiviert, obj.artefakte, obj.aufgabenbereiche);
+    });
+}
+
+function convertJsonDataToAufgabenbereiche(data){
+    return data.map(obj => {
+        return new Aufgabenbereich(obj.id, obj.titel, obj.kurzbeschreibung);
+    });
+}
+
+function convertJsonDataToArtefakte(data){
+    return data.map(obj => {
+        return new Artefakt(obj.id, obj.titel, obj.kurzbeschreibung, obj.zugehoerigerAufgabenbeeich, obj.geplanteArbeitszeit);
+    });
+}
+
+function holeProjekte(){
+    // projekte von rest api anfragen
+    fetch('api/projekte/liste')
+      .then(response => response.json())
+      .then(data => {
+        const projekte = convertJsonDataToProjekte(data);
+        
+        console.log("holeProjekte");
+        console.log(projekte);
+      })
+      .catch(error => {
+        console.error('Fehler beim Abrufen der Projekte:', error);
+      });
+}
+  
+function holeProjekt(titel){
+    // projekte von rest api anfragen
+    fetch('api/projekte/filter_titel?titel='+titel)
+      .then(response => response.json())
+      .then(data => {
+        const projekte = convertJsonDataToProjekte(data);
+    
+        console.log("holeProjekt titel:"+titel);
+        console.log(projekte);
+      })
+      .catch(error => {
+        console.error('Fehler beim Abrufen der Projekte:', error);
+      });
+}
+
+function holeAufgabenbereiche(){
+    // projekte von rest api anfragen
+    fetch('api/aufgabenbereiche/liste')
+      .then(response => response.json())
+      .then(data => {
+        const aufgabenbereiche = convertJsonDataToAufgabenbereiche(data);
+
+        console.log("holeAufgabenbereiche");
+        console.log(aufgabenbereiche);
+      })
+      .catch(error => {
+        console.error('Fehler beim Abrufen der Aufgabenbereiche:', error);
+      });
+}
+
+function holeAufgabenbereich(titel){
+    // projekte von rest api anfragen
+    fetch('api/aufgabenbereiche/filter_titel?titel='+titel)
+      .then(response => response.json())
+      .then(data => {
+        const aufgabenbereiche = convertJsonDataToAufgabenbereiche(data);
+
+        console.log("holeAufgabenbereich titel:"+titel);
+        console.log(aufgabenbereiche);
+      })
+      .catch(error => {
+        console.error('Fehler beim Abrufen der Aufgabenbereiche:', error);
+      });
+}
+  
+function holeArtefakte(){
+    // projekte von rest api anfragen
+    fetch('api/artefakte/liste')
+      .then(response => response.json())
+      .then(data => {
+        const artefakte = convertJsonDataToArtefakte(data);
+
+        console.log("holeArtefakte");
+        console.log(artefakte);
+      })
+      .catch(error => {
+        console.error('Fehler beim Abrufen der Artefakte:', error);
+      });
+}
+  
+function holeArtefakt(titel){
+    // projekte von rest api anfragen
+    fetch('api/artefakte/filter_titel?titel='+titel)    
+      .then(response => response.json())
+      .then(data => {
+        const artefakte = convertJsonDataToArtefakte(data);
+
+        console.log("holeArtefakt titel:"+titel);
+        console.log(artefakte);
+      })
+      .catch(error => {
+        console.error('Fehler beim Abrufen der Artefakte:', error);
+      });
+}
+
+holeProjekte();
+holeProjekt("gestern");
+holeAufgabenbereiche();
+holeAufgabenbereich("Aufg");
+holeArtefakte();
+holeArtefakt("Art");
