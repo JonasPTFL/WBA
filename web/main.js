@@ -254,7 +254,7 @@ fetch("api/artefakte", {
   
 
 // projekte von rest api anfragen
-fetch('api/artefakte?id=1')
+fetch('api/artefakte?id=23')
   .then(response => response.json())
   .then(data => {  
     const artefakt = convertJsonDataToArtefakt(data);
@@ -265,7 +265,7 @@ fetch('api/artefakte?id=1')
     artefakt.tatsaechlicheArbeitszeit = 11;
     
     let aktualisiertes_artefakt_json = JSON.stringify(artefakt, ["id", "titel", "kurzbeschreibung", "geplanteArbeitszeit", "tatsaechlicheArbeitszeit"]);
-    console.log("ajk"+aktualisiertes_artefakt_json);
+
     // tatsächliche arbeitszeit aktualisieren 
     fetch("api/artefakte", {
       method: 'PUT',
