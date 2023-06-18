@@ -39,12 +39,17 @@ public class ArtefaktResource implements Serializable {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     public Response update(Artefakt aufgabenbereichResource) {
+        try {
             ArtefaktRepository.getInstance().updateArtefakt(aufgabenbereichResource);
             URI location = URI.create(RestConstants.createObjectLocationPath(RestConstants.ARTEFAKT_PATH, aufgabenbereichResource.getId()));
             ResponseBuilder rb = Response.ok(location);
             return rb.build();
+        } catch (Exception ex) {
+            Logger.getLogger(ArtefaktResource.class.getName()).log(Level.SEVERE, null, ex);
+            return Response.ok(ex.toString()).build();
+        }
     }
-
+    
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)

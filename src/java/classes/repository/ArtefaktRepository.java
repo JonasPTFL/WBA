@@ -62,8 +62,17 @@ public class ArtefaktRepository {
         this.utx.commit();
     }
     
-    public void updateArtefakt(Artefakt aufgabenbereich){
+    public void updateArtefakt(Artefakt artefakt) throws Exception {
+        Artefakt a = this.em.getReference(Artefakt.class, artefakt.getId());
         
+        
+        this.utx.begin();
+        a.setGeplanteArbeitszeit(artefakt.getGeplanteArbeitszeit());
+        a.setKurzbeschreibung(artefakt.getKurzbeschreibung());
+        a.setTatsaechlicheArbeitszeit(artefakt.getTatsaechlicheArbeitszeit());
+        a.setKurzbeschreibung(artefakt.getKurzbeschreibung());
+        a.setZugehoerigerAufgabenbeeich(artefakt.getZugehoerigerAufgabenbeeich());
+        this.utx.commit();
     }
     
     public Artefakt getArtefaktById(Long id){

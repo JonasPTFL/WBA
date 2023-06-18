@@ -42,6 +42,16 @@ public class Artefakt implements Serializable {
     private Aufgabenbereich zugehoerigerAufgabenbeeich;
     
     private Integer geplanteArbeitszeit;
+    
+    private Integer tatsaechlicheArbeitszeit;
+
+    public Integer getTatsaechlicheArbeitszeit() {
+        return tatsaechlicheArbeitszeit;
+    }
+
+    public void setTatsaechlicheArbeitszeit(Integer tatsaechlicheArbeitszeit) {
+        this.tatsaechlicheArbeitszeit = tatsaechlicheArbeitszeit;
+    }
 
     public Integer getGeplanteArbeitszeit() {
         return geplanteArbeitszeit;

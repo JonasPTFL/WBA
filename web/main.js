@@ -98,6 +98,10 @@ function convertJsonDataToArtefakte(data){
     });
 }
 
+function convertJsonDataToArtefakt(obj){
+    return new Artefakt(obj.id, obj.titel, obj.kurzbeschreibung, obj.zugehoerigerAufgabenbeeich, obj.geplanteArbeitszeit);
+}
+
 function holeProjekte(){
     // projekte von rest api anfragen
     fetch('api/projekte/liste')
@@ -195,9 +199,9 @@ holeAufgabenbereich("Aufg");
 holeArtefakte();
 holeArtefakt("Art");
 
-let aufgabenbereich_neu = new Aufgabenbereich(0, "Titel1 NEU JavaScript", "Kurz1 NEU JavaScript");
-let artefakt_neu = new Artefakt(0, "titel1 NEU JavaScript", "Kurz1", aufgabenbereich_neu, 2);
-let projekt_neu = new Projekt(0, "Titel1", "Kurz1 NEU JavaScript", "Logo1", "2023-06-15T10:15:30", false, [artefakt_neu], [aufgabenbereich_neu]);
+let aufgabenbereich_neu = new Aufgabenbereich(1, "Titel1 JS Aufgabenbereich", "Kurz1 NEU JavaScript");
+let artefakt_neu = new Artefakt(1, "titel1 JS Artefakt", "Kurz1", aufgabenbereich_neu, 2);
+let projekt_neu = new Projekt(1, "Titel1 JS Projekt", "Kurz1 NEU JavaScript", "Logo1", "2023-06-15T10:15:30", false, [artefakt_neu], [aufgabenbereich_neu]);
 
 let projekt_json = JSON.stringify(projekt_neu, ["titel", "kurzbeschreibung", "logopath", "archiviert", "startdate"]);
 let aufgabenbereich_json = JSON.stringify(aufgabenbereich_neu, ["titel", "kurzbeschreibung"]);
@@ -246,4 +250,38 @@ fetch("api/artefakte", {
   })
   .catch(error => {
     console.error('Fehler bei POST artefakte:', error);
+  });
+  
+
+// projekte von rest api anfragen
+fetch('api/artefakte?id=1')
+  .then(response => response.json())
+  .then(data => {  
+    const artefakt = convertJsonDataToArtefakt(data);
+
+    console.log("Artefakt des Projekts das aktualisiert werden soll:");
+    console.log(artefakt);
+    
+    artefakt.tatsaechlicheArbeitszeit = 11;
+    
+    let aktualisiertes_artefakt_json = JSON.stringify(artefakt, ["id", "titel", "kurzbeschreibung", "geplanteArbeitszeit", "tatsaechlicheArbeitszeit"]);
+    console.log("ajk"+aktualisiertes_artefakt_json);
+    // tatsächliche arbeitszeit aktualisieren 
+    fetch("api/artefakte", {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: aktualisiertes_artefakt_json
+    })
+      .then(response => response.json())
+      .then(data => {
+        console.log("Antwort auf PUT artefakte:"+data);
+      })
+      .catch(error => {
+        console.error('Fehler bei PUT artefakte:', error);
+      });
+  })
+  .catch(error => {
+    console.error('Fehler beim Abrufen der Projekte:', error);
   });
