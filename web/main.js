@@ -80,6 +80,7 @@ function getLexikonText(key){
     }
 }
 
+// ----------------------------------------------------------- Konvertierungsmethoden 
 function convertJsonDataToProjekte(data){
     return data.map(obj => {
         return new Projekt(obj.id, obj.titel, obj.kurzbeschreibung, obj.logopath, obj.startdatum, obj.archiviert, obj.artefakte, obj.aufgabenbereiche);
@@ -102,6 +103,7 @@ function convertJsonDataToArtefakt(obj){
     return new Artefakt(obj.id, obj.titel, obj.kurzbeschreibung, obj.zugehoerigerAufgabenbeeich, obj.geplanteArbeitszeit);
 }
 
+// ----------------------------------------------------------- Aufgabe a
 function holeProjekte(){
     // projekte von rest api anfragen
     fetch('api/projekte/liste')
@@ -199,6 +201,7 @@ holeAufgabenbereich("Aufg");
 holeArtefakte();
 holeArtefakt("Art");
 
+// ----------------------------------------------------------- Aufgabe b
 let aufgabenbereich_neu = new Aufgabenbereich(1, "Titel1 JS Aufgabenbereich", "Kurz1 NEU JavaScript");
 let artefakt_neu = new Artefakt(1, "titel1 JS Artefakt", "Kurz1", aufgabenbereich_neu, 2);
 let projekt_neu = new Projekt(1, "Titel1 JS Projekt", "Kurz1 NEU JavaScript", "Logo1", "2023-06-15T10:15:30", false, [artefakt_neu], [aufgabenbereich_neu]);
@@ -253,6 +256,7 @@ fetch("api/artefakte", {
   });
   
 
+// ----------------------------------------------------------- Aufgabe c
 // projekte von rest api anfragen
 fetch('api/artefakte?id=23')
   .then(response => response.json())
