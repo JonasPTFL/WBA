@@ -110,6 +110,26 @@ function holeProjekte(){
       .then(response => response.json())
       .then(data => {
         const projekte = convertJsonDataToProjekte(data);
+    
+        
+        document.getElementById("projekte_liste").innerHTML = projekte.map(obj => {
+            return `<li><a onClick='
+                    localStorage.setItem("projekt_id", `+obj.id+`)
+'href='projekt_detail.html'>`+obj.titel+`</a></li>`;
+        }).join('');
+        
+        var tableRef = document.getElementById('projekte_tabelle').getElementsByTagName('tbody')[0];
+        
+        projekte.forEach(obj => {
+            var newRow = tableRef.insertRow(tableRef.rows.length);
+            newRow.innerHTML = `
+            <tr>
+                <td><a onClick='
+                    localStorage.setItem("projekt_id", `+obj.id+`)
+' class='footer-link projektitel' href='projekt_detail.html'>`+obj.titel+`</a></td>
+              <td class='kurzbeschreibung'>`+obj.kurzbeschreibung+`</td>
+            </tr>`;
+        }).join('');
         
         console.log("holeProjekte");
         console.log(projekte);
@@ -204,7 +224,7 @@ holeArtefakt("Art");
 // ----------------------------------------------------------- Aufgabe b
 let aufgabenbereich_neu = new Aufgabenbereich(1, "Titel1 JS Aufgabenbereich", "Kurz1 NEU JavaScript");
 let artefakt_neu = new Artefakt(1, "titel1 JS Artefakt", "Kurz1", aufgabenbereich_neu, 2);
-let projekt_neu = new Projekt(1, "Titel1 JS Projekt", "Kurz1 NEU JavaScript", "Logo1", "2023-06-15T10:15:30", false, [artefakt_neu], [aufgabenbereich_neu]);
+let projekt_neu = new Projekt(1, "NEU Titel1 JS Projekt", "Kurz1 NEU JavaScript", "Logo1", "2023-06-15T10:15:30", false, [artefakt_neu], [aufgabenbereich_neu]);
 
 let projekt_json = JSON.stringify(projekt_neu, ["titel", "kurzbeschreibung", "logopath", "archiviert", "startdate"]);
 let aufgabenbereich_json = JSON.stringify(aufgabenbereich_neu, ["titel", "kurzbeschreibung"]);

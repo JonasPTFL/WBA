@@ -15,6 +15,32 @@
         <script src="projekt.js"></script>
         <script src="projekt_sortierung.js"></script>
         <script src="main.js"></script>
+        <script>
+                    
+                    
+    fetch('api/projekte/liste')
+      .then(response => response.json())
+      .then(data => {
+        const projekte = convertJsonDataToProjekte(data);
+        let id = localStorage.getItem("projekt_id");
+        
+        for(let p of projekte){
+            if(p.id == id){
+                var projekt = p;
+            }
+        }
+        document.getElementById("titel").innerHTML = projekt.titel;
+        document.getElementById("kurzbeschreibung").innerHTML = projekt.kurzbeschreibung;
+        document.getElementById("startdate").innerHTML = projekt.startdate
+        
+        
+        console.log("holeProjekte");
+        console.log(projekte);
+      })
+      .catch(error => {
+        console.error('Fehler beim Abrufen der Projekte:', error);
+      });
+        </script>
     </head>
     <header>
         <form action="/" method="post" class="login-bereich">
@@ -45,18 +71,16 @@
                 <h1>Projektseite</h1>  
                 <div class="projektkopf">
                     <img class="projektlogo" src="projektlogo1.png" alt="Projektlogo1" width="100" />
-                    <h2 class="projektitel">Name: Projekt 1</h2>
+                    <h2 class="projektitel">Name: <span id="titel"/></h2>
                 
-                    <p class="projektleiter">Autor: Marian</p>
+                    <p class="projektleiter">Autor: ?</p>
                 </div>
 
                 <h2 id="kb">Kurzbeschreibung</h2>
-                <p>Kurzbeschreibung Projekt 1</p>
+                <p id="kurzbeschreibung"/>
 
                 <h2 id="lb">Langbeschreibung</h2>
-                <p>Langbeschreibung <br>Projekt 1<br>Lange Beschreibung...</p>
-                 <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br> <br>
-
+                <p>?</p>
                 <h2 id="pz">Projektziele</h2>
                  <ol>
                     <li>Projektziel 1</li>
